@@ -75,11 +75,28 @@
     home.packages = with pkgs; [
       fishPlugins.pure
     ];
-    programs.bash.enable = true;
     programs.git = {
       enable = true;
       userName = "Dom H";
       userEmail = "dom@hxy.io";
+    };
+    programs.fish = {
+      enable = true;
+      shellAbbrs = {
+        d = "docker";
+        dc = "docker-compose";
+        e = "vim";
+        g = "git";
+        gc = "git commit -v";
+        gcp = "git commit -v -p";
+        gd = "git diff";
+        gl = "git log";
+        gs = "git status";
+        m = "make -s";
+        nrs = "sudo nixos-rebuild switch";
+        ns = "nix-shell";
+        v = "vagrant";
+      };
     };
   };
 
