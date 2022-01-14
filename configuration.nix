@@ -73,7 +73,6 @@
   # Configure user account with home-manager.
   home-manager.users.dom = { pkgs, ... }: {
     home.packages = with pkgs; [
-      cowsay
     ];
     programs.bash.enable = true;
     programs.git = {
