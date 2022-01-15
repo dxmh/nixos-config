@@ -98,6 +98,28 @@
         v = "vagrant";
       };
     };
+    programs.vim = {
+      enable = true;
+      plugins = with pkgs.vimPlugins; [
+        editorconfig-vim
+        fzf-vim
+        fzfWrapper
+        starsearch-vim
+        vim-commentary
+        vim-eunuch
+        vim-fugitive
+        vim-nix
+        vim-oscyank
+        vim-repeat
+        vim-rhubarb
+        vim-rsi
+        vim-sensible
+        vim-speeddating
+        vim-surround
+        vim-unimpaired
+        vim-vinegar
+      ];
+    };
   };
 
   # List packages installed in system profile. To search, run:
