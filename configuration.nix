@@ -81,6 +81,7 @@
   home-manager.users.dom = { pkgs, ... }: {
     home.packages = with pkgs; [
       fishPlugins.pure
+      gnumake
     ];
     programs.git = {
       enable = true;
