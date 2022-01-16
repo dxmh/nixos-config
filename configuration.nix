@@ -55,6 +55,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable docker. Start on demand by socket activation rather than on boot.
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = false;
+
   # Enable the fish shell system-wide.
   # This provides vendor fish completions, etc.
   programs.fish.enable = true;
@@ -63,7 +67,10 @@
   users.users.dom = {
     isNormalUser = true;
     initialPassword = "hunter2";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpIMrPStsNADURgP6ZXp+1PwMrIMOthUwVLWdP11XBd"
