@@ -141,8 +141,6 @@
         set showcmd " show commands as they're being typed
         set hidden " allow switching buffers without saving
         set hlsearch " search highlighting on
-        set mouse=a " enable mouse mode
-        set clipboard-=autoselect " don't add selected text to clipboard automatically
 
         " Easier access to frequent commands
         nnoremap <leader><leader> :Buffers<Return>
@@ -186,8 +184,6 @@
         set -g default-terminal "xterm-256color" # hack $TERM so VIM can do ctrl+arrows
         set -g renumber-windows on # automatically renumber window IDs when one closes
         set -g base-index 1 # start numbering windows from 1 (rather than 0)
-        set -g mouse on # enable scrollback within touchscreen etc.
-        unbind-key -Tcopy-mode-vi MouseDragEnd1Pane # disable copy-and-cancel upon text selection
 
         # Reload config
         bind r source-file ~/.tmux.conf \; \
@@ -239,15 +235,6 @@
         bind-key -n M-7 select-window -t 7
         bind-key -n M-8 select-window -t 8
         bind-key -n M-9 select-window -t 9
-
-        # Blink.app mappings
-        bind-key -n F10 kill-pane
-        bind-key -n F11 select-pane -t :.- -Z
-        bind-key -n F12 select-pane -t :.+ -Z
-
-        # Copy/paste using OSC52
-        set -g set-clipboard on
-        set -ag terminal-overrides "vte*:XT:Ms=\\E]52;c;%p2%s\\7,xterm*:XT:Ms=\\E]52;c;%p2%s\\7"
 
         # Similar copy/paste bindings to VIM
         bind-key -T copy-mode-vi v send-keys -X begin-selection
