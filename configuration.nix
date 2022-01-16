@@ -82,6 +82,7 @@
     home.packages = with pkgs; [
       fishPlugins.pure
       gnumake
+      gh
     ];
     programs.git = {
       enable = true;
