@@ -272,6 +272,30 @@
     EDITOR = "vim";
   };
 
+  # Setup windowing environment
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    dpi = 220;
+
+    desktopManager = {
+      xterm.enable = false;
+      wallpaper.mode = "scale";
+    };
+
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin = {
+        enable = true;
+        user = "dom";
+      };
+    };
+
+    windowManager = {
+      i3.enable = true;
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
