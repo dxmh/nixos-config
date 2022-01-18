@@ -183,6 +183,7 @@
     };
     programs.tmux = {
       enable = true;
+      newSession = true; # spawn a session if trying to attach and none are running
       extraConfig = ''
         # General settings
         set -g history-limit 99999 # set big history limit
