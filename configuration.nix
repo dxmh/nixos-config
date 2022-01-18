@@ -94,6 +94,7 @@
       enable = true;
       userName = "Dom H";
       userEmail = "dom@hxy.io";
+      delta.enable = true;
     };
     programs.fish = {
       enable = true;
