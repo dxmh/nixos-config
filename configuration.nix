@@ -84,6 +84,12 @@
       gnumake
       gh
     ];
+    programs.bat = {
+      enable = true;
+      config = {
+        theme = "Sublime Snazzy";
+      };
+    };
     programs.git = {
       enable = true;
       userName = "Dom H";
