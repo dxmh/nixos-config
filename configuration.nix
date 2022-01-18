@@ -110,6 +110,7 @@
         gs = "git status";
         m = "make -s";
         nrs = "sudo nixos-rebuild switch";
+        ne = "vim ~/code/hxy/nixos-config/configuration.nix";
         ns = "nix-shell";
         v = "vagrant";
       };
