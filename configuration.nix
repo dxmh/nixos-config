@@ -191,6 +191,17 @@
         nnoremap <leader>rs 1z=
       '';
     };
+    programs.i3status = {
+      enable = true;
+      general = {
+        interval = 1;
+      };
+      modules = {
+        ipv6.enable = false;
+        "wireless _first_".enable = false;
+        "battery all".enable = false;
+      };
+    };
     programs.tmux = {
       enable = true;
       newSession = true; # spawn a session if trying to attach and none are running
@@ -300,7 +311,6 @@
       enable = true;
       extraPackages = with pkgs; [
         dmenu
-        i3status
         kitty
       ];
     };
