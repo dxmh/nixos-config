@@ -84,6 +84,11 @@
       gnumake
       gh
     ];
+    xsession.pointerCursor = {
+      name = "Vanilla-DMZ";
+      package = pkgs.vanilla-dmz;
+      size = 128;
+    };
     programs.bat = {
       enable = true;
       config = {
