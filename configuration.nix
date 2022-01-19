@@ -147,51 +147,7 @@
         vim-unimpaired
         vim-vinegar
       ];
-      extraConfig = ''
-        " Put leader key under the thumb
-        nnoremap <Space> <NOP>
-        let mapleader = "\<Space>"
-
-        " General configuration
-        set path+=** " recursively add contents of current directory to path
-        set list " show invisible characters such as tabs and trailing spaces
-        set number relativenumber " show relative line numbers except for current line
-        set ignorecase smartcase " ignore case unless search patterns contains capitals
-        set showcmd " show commands as they're being typed
-        set hidden " allow switching buffers without saving
-        set hlsearch " search highlighting on
-
-        " Easier access to frequent commands
-        nnoremap <leader><leader> :Buffers<Return>
-        nnoremap <leader>bd :bd<CR>
-        nnoremap <leader>g :Git<CR>
-        nnoremap <leader>q :q<CR>
-        nnoremap <leader>s :w<CR>
-        nnoremap <leader>w :w<CR>
-        nnoremap <leader>x :x<CR>
-        nnoremap <leader>f :Files<Return>
-        nnoremap <leader>r :Rename <c-r>=expand('%')<CR>
-
-        " Line wrapping
-        set wrap " enable soft-wrapping
-        set linebreak " don't soft-wrap mid-word
-        set breakindent " continue indentation of soft-wrapped line
-        set showbreak=\\\  " prefix soft-wrapped lines with a backslash
-        set textwidth=80 " column to hard-wrap at (with gq for example)
-        set formatoptions-=tc " don't automatically hard-wrap text or comments
-
-        " Use tabs for indentation and spaces for alignment.
-        " This ensures everything will line up independent of tab size.
-        " - https://suckless.org/coding_style
-        " - https://vim.fandom.com/wiki/VimTip1626
-        set noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=2 tabstop=2
-
-        " Spellchecking
-        " Vim offers suggestions! See `:help z=` and `:help i^xs`...
-        set nospell " off by default
-        set spelllang=en_gb
-        nnoremap <leader>rs 1z=
-      '';
+      extraConfig = builtins.readFile ./config/vimrc;
     };
     programs.i3status = {
       enable = true;
@@ -207,71 +163,7 @@
     programs.tmux = {
       enable = true;
       newSession = true; # spawn a session if trying to attach and none are running
-      extraConfig = ''
-        # General settings
-        set -g history-limit 99999 # set big history limit
-        set -g mode-keys vi # use vim keybindings in copy mode
-        set -g escape-time 0 # disable delay for escape key press
-        set -g default-terminal "xterm-256color" # hack $TERM so VIM can do ctrl+arrows
-        set -g renumber-windows on # automatically renumber window IDs when one closes
-        set -g base-index 1 # start numbering windows from 1 (rather than 0)
-
-        # Reload config
-        bind r source-file ~/.tmux.conf \; \
-          display-message "tmux config reloaded..."
-
-        # Name windows manually
-        setw -g automatic-rename off
-
-        # Open windows in $HOME and panes in current working directory
-        bind -n M-N new-window -c "$HOME"
-        bind 'c' new-window -c "$HOME"
-        bind '%' split-window -h -c "#{pane_current_path}"
-        bind '"' split-window -v -c "#{pane_current_path}"
-
-        # Pane styles
-        set -g pane-border-status off
-        set -g pane-border-style "fg=colour08"
-        set -g pane-active-border-style "fg=colour4"
-        set -g display-panes-colour "colour08"
-        set -g display-panes-active-colour "colour04"
-
-        # Window list
-        set -g status-style "fg=colour08, bg=default"
-        setw -g window-status-style "fg=default"
-        setw -g window-status-current-style "fg=colour04"
-        setw -g window-status-separator "  "
-        setw -g window-status-format '#I:#W'
-        setw -g window-status-current-format "#I:#W#[fg=red]#(printf '%%s\n' '#F' | tr -d '*')"
-
-        # Status bar
-        setw -g status-justify left
-        set -g status-left ""
-        set -g status-right '#( whoami )@#( hostname ) #{pane_current_command} #( date +%H:%M )'
-        set -g status-interval 1
-
-        # Pane selection
-        bind-key -n M-Up select-pane -t :.+ -Z
-        bind-key -n M-k select-pane -t :.+ -Z
-        bind-key -n M-Down select-pane -t :.- -Z
-        bind-key -n M-j select-pane -t :.- -Z
-
-        # Window selection
-        bind-key -n M-1 select-window -t 1
-        bind-key -n M-2 select-window -t 2
-        bind-key -n M-3 select-window -t 3
-        bind-key -n M-4 select-window -t 4
-        bind-key -n M-5 select-window -t 5
-        bind-key -n M-6 select-window -t 6
-        bind-key -n M-7 select-window -t 7
-        bind-key -n M-8 select-window -t 8
-        bind-key -n M-9 select-window -t 9
-
-        # Similar copy/paste bindings to VIM
-        bind-key -T copy-mode-vi v send-keys -X begin-selection
-        bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
-        bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-      '';
+      extraConfig = builtins.readFile ./config/tmux.conf;
     };
   };
 
