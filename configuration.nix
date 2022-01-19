@@ -174,6 +174,7 @@
     curl
     htop
     vim
+    tree
     bind # for dig
   ];
 
