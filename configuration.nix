@@ -83,6 +83,8 @@
       fishPlugins.pure
       gnumake
       gh
+      # graphical
+      electrum
     ];
     xsession.pointerCursor = {
       name = "Vanilla-DMZ";
