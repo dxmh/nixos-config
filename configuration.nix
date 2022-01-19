@@ -314,6 +314,7 @@
       extraPackages = with pkgs; [
         dmenu
         kitty
+        arandr
       ];
     };
   };
