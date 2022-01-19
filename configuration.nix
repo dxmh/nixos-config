@@ -91,6 +91,20 @@
       package = pkgs.vanilla-dmz;
       size = 128;
     };
+
+    programs.kitty = {
+      enable = true;
+      extraConfig = builtins.readFile ./config/kitty.conf;
+    };
+
+    # Snazzy theme for Kitty terminal
+    xdg.configFile."kitty/snazzy.conf".text = builtins.readFile (
+      builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/connorholyday/kitty-snazzy/6ae245a6319dc0d6416457355678fa48f275c971/snazzy.conf";
+        sha256 = "cc43a48764eed43b4afe86250bc12740c8872064536cda59f6be56f5da684319";
+      }
+    );
+
     programs.bat = {
       enable = true;
       config = {
@@ -208,7 +222,6 @@
       enable = true;
       extraPackages = with pkgs; [
         dmenu
-        kitty
         arandr
       ];
     };
