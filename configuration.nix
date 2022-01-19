@@ -294,11 +294,6 @@
     layout = "us";
     dpi = 220;
 
-    desktopManager = {
-      xterm.enable = false;
-      wallpaper.mode = "scale";
-    };
-
     displayManager = {
       defaultSession = "none+i3";
       autoLogin = {
