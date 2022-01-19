@@ -54,6 +54,7 @@ home-manager.users.dom = { pkgs, ... }: {
       ne = "vim ~/code/hxy/nixos-config/configuration.nix";
       ns = "nix-shell";
       v = "vagrant";
+      xp = "xrandr --output Virtual-1 --preferred";
     };
   };
 
