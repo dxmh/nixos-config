@@ -105,6 +105,18 @@ home-manager.users.dom = { pkgs, ... }: {
     extraConfig = builtins.readFile ./config/tmux.conf;
   };
 
+  services.sxhkd = {
+    enable = true;
+    extraConfig = ''
+      super + alt + control + l
+        xrandr --output Virtual-1 --preferred
+    '';
+  };
+
+  # in order for sxhkd to work, home-manager needs to manage the X session
+  # https://github.com/nix-community/home-manager/issues/2234#issuecomment-894711458
+  xsession.enable = true;
+
   # Scalable cursor theme to fix tiny pointer on HiDPI display
   xsession.pointerCursor = {
     name = "Vanilla-DMZ";
