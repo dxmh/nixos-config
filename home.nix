@@ -7,6 +7,7 @@ home-manager.users.dom = { pkgs, ... }: {
     gnumake
     gh
     # graphical
+    dmenu
     electrum
   ];
 
@@ -113,15 +114,26 @@ home-manager.users.dom = { pkgs, ... }: {
     '';
   };
 
-  # in order for sxhkd to work, home-manager needs to manage the X session
-  # https://github.com/nix-community/home-manager/issues/2234#issuecomment-894711458
-  xsession.enable = true;
+  xsession = {
 
-  # Scalable cursor theme to fix tiny pointer on HiDPI display
-  xsession.pointerCursor = {
-    name = "Vanilla-DMZ";
-    package = pkgs.vanilla-dmz;
-    size = 128;
+    # In order for sxhkd to work, home-manager needs to manage the X session.
+    # https://github.com/nix-community/home-manager/issues/2234#issuecomment-894711458
+    enable = true;
+
+    windowManager.i3 = {
+      enable = true;
+      config = {
+        terminal = "kitty";
+      };
+    };
+
+    # Scalable cursor theme to fix tiny pointer on HiDPI display.
+    pointerCursor = {
+      name = "Vanilla-DMZ";
+      package = pkgs.vanilla-dmz;
+      size = 128;
+    };
+
   };
 
 };

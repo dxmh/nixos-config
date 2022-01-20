@@ -60,33 +60,23 @@
   # Setup windowing environment
   services.xserver = {
     enable = true;
-
     layout = "us";
     dpi = 220;
-
     displayManager = {
-      defaultSession = "none+i3";
       autoLogin = {
         enable = true;
         user = "dom";
       };
-      # Set resolution to full-screen 15" MBP until automatic adjustment is working
-      # https://askubuntu.com/a/377944
-      sessionCommands = ''
-        ${pkgs.xorg.xrandr}/bin/xrandr --newmode "3456x2160_60.00"  642.00  3456 3744 4120 4784  2160 2163 2169 2237 -hsync +vsync
-        ${pkgs.xorg.xrandr}/bin/xrandr --addmode Virtual-1 "3456x2160_60.00"
-        ${pkgs.xorg.xrandr}/bin/xrandr --size '3456x2160_60.00'
-      '';
+      defaultSession = "none+home-manager";
+      session = [{
+        name = "home-manager";
+        manage = "window";
+        start = ''
+          ${pkgs.stdenv.shell} $HOME/.xsession &
+          waitPID=$!
+        '';
+      }];
     };
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        arandr
-      ];
-    };
-
   };
 
   # Enable the OpenSSH daemon.
