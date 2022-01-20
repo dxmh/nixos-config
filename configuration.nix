@@ -8,6 +8,12 @@
       <home-manager/nixos>
     ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      sf-mono-liga-bin = pkgs.callPackage ./sfmono.nix {};
+    })
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -78,6 +84,10 @@
       }];
     };
   };
+
+  fonts.fonts = with pkgs; [
+    sf-mono-liga-bin
+  ];
 
   # Enable the OpenSSH daemon.
   services.openssh = {
