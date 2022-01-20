@@ -125,7 +125,17 @@ home-manager.users.dom = { pkgs, ... }: {
 
     windowManager.i3 = {
       enable = true;
+      package = pkgs.i3-gaps;
       config = {
+        gaps = {
+          inner = 5;
+          smartGaps = true;
+          smartBorders = "on";
+        };
+        modifier = "Mod4";
+        startup = [
+          { command = "kitty"; }
+        ];
         terminal = "kitty";
       };
     };
