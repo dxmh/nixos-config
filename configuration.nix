@@ -69,21 +69,7 @@
     enable = true;
     layout = "us";
     dpi = 220;
-    displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "dom";
-      };
-      defaultSession = "none+home-manager";
-      session = [{
-        name = "home-manager";
-        manage = "window";
-        start = ''
-          ${pkgs.stdenv.shell} $HOME/.xsession &
-          waitPID=$!
-        '';
-      }];
-    };
+    displayManager.startx.enable = true;
   };
 
   fonts.fonts = with pkgs; [

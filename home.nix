@@ -10,6 +10,7 @@ home-manager.users.dom = { pkgs, ... }: {
     gnumake
     gh
     # graphical
+    dwm
     dmenu
     electrum
   ];
@@ -60,6 +61,11 @@ home-manager.users.dom = { pkgs, ... }: {
       v = "vagrant";
       xp = "xrandr --output Virtual-1 --preferred";
     };
+    loginShellInit = ''
+      if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+        exec startx ${pkgs.dwm}/bin/dwm
+      end
+    '';
   };
 
   programs.fzf = {
@@ -91,54 +97,13 @@ home-manager.users.dom = { pkgs, ... }: {
     extraConfig = builtins.readFile ./config/vimrc;
   };
 
-  programs.i3status = {
-    enable = true;
-    general = {
-      interval = 1;
-    };
-    modules = {
-      ipv6.enable = false;
-      "wireless _first_".enable = false;
-      "battery all".enable = false;
-    };
-  };
-
   programs.tmux = {
     enable = true;
     newSession = true; # spawn a session if trying to attach and none are running
     extraConfig = builtins.readFile ./config/tmux.conf;
   };
 
-  services.sxhkd = {
-    enable = true;
-    extraConfig = ''
-      super + alt + control + l
-        xrandr --output Virtual-1 --preferred
-    '';
-  };
-
   xsession = {
-
-    # In order for sxhkd to work, home-manager needs to manage the X session.
-    # https://github.com/nix-community/home-manager/issues/2234#issuecomment-894711458
-    enable = true;
-
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      config = {
-        gaps = {
-          inner = 5;
-          smartGaps = true;
-          smartBorders = "on";
-        };
-        modifier = "Mod4";
-        startup = [
-          { command = "kitty"; }
-        ];
-        terminal = "kitty";
-      };
-    };
 
     # Scalable cursor theme to fix tiny pointer on HiDPI display.
     pointerCursor = {
