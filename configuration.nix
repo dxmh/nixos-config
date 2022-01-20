@@ -97,4 +97,9 @@
   # Convenience...
   security.sudo.wheelNeedsPassword = false;
 
+  # Use system-level pkgs and profiles. These may become the default values in future.
+  # https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
+
 }
