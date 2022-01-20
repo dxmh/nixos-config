@@ -54,6 +54,7 @@
     bind # for dig
     curl
     htop
+    killall
     tree
     vim
   ];
