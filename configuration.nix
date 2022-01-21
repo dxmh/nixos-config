@@ -11,6 +11,14 @@
   nixpkgs.overlays = [
     (final: prev: {
       sf-mono-liga-bin = pkgs.callPackage ./sfmono.nix {};
+      dwm = prev.dwm.overrideAttrs (oldAttrs: rec {
+        configFile = prev.writeText "config.h" (builtins.readFile ./config/dwm-config.h);
+        postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
+      });
+      slstatus = prev.slstatus.overrideAttrs (oldAttrs: rec {
+        configFile = prev.writeText "config.h" (builtins.readFile ./config/slstatus-config.h);
+        postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
+      });
     })
   ];
 

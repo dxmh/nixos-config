@@ -12,6 +12,7 @@ home-manager.users.dom = { pkgs, ... }: {
     # graphical
     dwm
     dmenu
+    slstatus
     electrum
   ];
 
