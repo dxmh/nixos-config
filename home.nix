@@ -101,6 +101,12 @@ home-manager.users.dom = { pkgs, ... }: {
 
   xsession = {
 
+    enable = true;
+    initExtra = ''
+      slstatus &
+      kitty &
+    '';
+
     # Scalable cursor theme to fix tiny pointer on HiDPI display.
     pointerCursor = {
       name = "Vanilla-DMZ";
