@@ -41,3 +41,6 @@ set noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=2 tabstop=2
 set nospell " off by default
 set spelllang=en_gb
 nnoremap <leader>rs 1z=
+
+" Colours
+colorscheme snazzy

@@ -85,6 +85,7 @@ home-manager.users.dom = { pkgs, ... }: {
       vim-rhubarb
       vim-rsi
       vim-sensible
+      vim-snazzy
       vim-speeddating
       vim-surround
       vim-unimpaired

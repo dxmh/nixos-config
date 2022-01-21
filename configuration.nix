@@ -19,6 +19,7 @@
         configFile = prev.writeText "config.h" (builtins.readFile ./config/slstatus-config.h);
         postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
       });
+      vimPlugins = prev.vimPlugins // prev.callPackage ./vim-plugins.nix {};
     })
   ];
 
