@@ -77,7 +77,14 @@
     enable = true;
     layout = "us";
     dpi = 220;
-    displayManager.startx.enable = true;
+    windowManager.dwm.enable = true;
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "dom";
+      };
+      defaultSession = "none+dwm";
+    };
   };
 
   fonts.fonts = with pkgs; [

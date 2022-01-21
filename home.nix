@@ -62,11 +62,6 @@ home-manager.users.dom = { pkgs, ... }: {
       v = "vagrant";
       xp = "xrandr --output Virtual-1 --preferred";
     };
-    loginShellInit = ''
-      if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-        exec startx ${pkgs.dwm}/bin/dwm
-      end
-    '';
   };
 
   programs.fzf = {
