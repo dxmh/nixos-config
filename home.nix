@@ -61,6 +61,11 @@ home-manager.users.dom = { pkgs, ... }: {
       ns = "nix-shell";
       v = "vagrant";
       xp = "xrandr --output Virtual-1 --preferred";
+      start = "sudo systemctl start";
+      stop = "sudo systemctl stop";
+      reboot = "sudo systemctl reboot";
+      reload = "sudo systemctl reload";
+      restart = "sudo systemctl restart";
     };
   };
 
