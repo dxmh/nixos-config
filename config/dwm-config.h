@@ -5,8 +5,9 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "LigaSFMonoNerdFont-Medium:size=10" };
-static const char dmenufont[]       = "LigaSFMonoNerdFont:size=10";
+static const int user_bh            = 60;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]          = { "LigaSFMonoNerdFont-Medium:size=9" };
+static const char dmenufont[]       = "LigaSFMonoNerdFont:size=9";
 static const char col_gray1[]       = "#282a36"; /* inactive background, inactive border */
 static const char col_gray2[]       = "#606580"; /* active border */
 static const char col_gray3[]       = "#606580"; /* inactive text */
