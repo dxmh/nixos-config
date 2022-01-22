@@ -44,7 +44,13 @@ home-manager.users.dom = { pkgs, ... }: {
     enable = true;
     userName = "Dom H";
     userEmail = "dom@hxy.io";
-    delta.enable = true;
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = true;
+        syntax-theme = "Sublime Snazzy";
+      };
+    };
   };
 
   programs.fish = {
