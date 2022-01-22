@@ -10,7 +10,6 @@ home-manager.users.dom = { pkgs, ... }: {
   };
 
   home.packages = with pkgs; [
-    fishPlugins.pure
     gnumake
     gh
     # graphical
@@ -76,6 +75,27 @@ home-manager.users.dom = { pkgs, ... }: {
       reboot = "sudo systemctl reboot";
       reload = "sudo systemctl reload";
       restart = "sudo systemctl restart";
+    };
+  };
+
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      add_newline = false;
+      git_status.disabled = true;
+      line_break.disabled = true;
+      python.symbol = " ";
+      right_format = "$time";
+      status.disabled = false;
+      username.disabled = true;
+      vagrant.disabled = true;
+      time = {
+        disabled = false;
+        time_format = "%T";
+        format = "[$time]($style)";
+        style = "bright-black";
+      };
     };
   };
 
