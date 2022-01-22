@@ -5,6 +5,10 @@ home-manager.users.dom = { pkgs, ... }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  home.sessionVariables = {
+    MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
+  };
+
   home.packages = with pkgs; [
     fishPlugins.pure
     gnumake
