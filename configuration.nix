@@ -17,6 +17,10 @@
             url = "https://dwm.suckless.org/patches/bar_height/dwm-bar-height-6.2.diff";
             sha256 = "0x70ca7a5cwp5ny888g4vhga4gl3qba3w7nawh954cjlx234q1rz";
           })
+          (prev.fetchpatch {
+            url = "https://dwm.suckless.org/patches/smartborders/dwm-smartborders-6.2.diff";
+            sha256 = "0chx3i2ddnx1i2c2hfp2m693khjfmfx2fmvwp6qa79jqymmlzdxs";
+          })
         ];
         configFile = prev.writeText "config.h" (builtins.readFile ./config/dwm-config.h);
         postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
