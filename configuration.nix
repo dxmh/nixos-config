@@ -33,6 +33,24 @@
     })
   ];
 
+  nix = {
+    # Automatic optimisation of duplicate files:
+    autoOptimiseStore = true;
+    # Automatic garbage collection:
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    # Perform automatic garbage collection when /nix/store/ drops below 100MB
+    # free space, keep going until 1GB of free space is available (or there is
+    # no more garbage):
+    extraOptions = ''
+      min-free = ${toString (100 * 1024 * 1024)}
+      max-free = ${toString (1024 * 1024 * 1024)}
+    '';
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
