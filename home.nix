@@ -6,6 +6,7 @@ home-manager.users.dom = { pkgs, ... }: {
   programs.home-manager.enable = true;
 
   home.sessionVariables = {
+    BROWSER = "${pkgs.surf}/bin/surf";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
@@ -16,6 +17,7 @@ home-manager.users.dom = { pkgs, ... }: {
     dwm
     dmenu
     slstatus
+    surf
     electrum
   ];
 
