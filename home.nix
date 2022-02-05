@@ -13,6 +13,7 @@ home-manager.users.dom = { pkgs, ... }: {
   home.packages = with pkgs; [
     gnumake
     gh
+    z-lua
     # graphical
     dwm
     dmenu
@@ -72,6 +73,7 @@ home-manager.users.dom = { pkgs, ... }: {
       ns = "nix-shell";
       v = "vagrant";
       xp = "xrandr --output Virtual-1 --preferred";
+      t = "z"; # z is not pinky-friendly; t is for "to"
       start = "sudo systemctl start";
       stop = "sudo systemctl stop";
       reboot = "sudo systemctl reboot";
@@ -81,6 +83,9 @@ home-manager.users.dom = { pkgs, ... }: {
     shellInit = ''
       # Disable welcome message
       set fish_greeting
+      # Enable z (https://github.com/skywind3000/z.lua)
+      ${pkgs.z-lua}/bin/z --init fish | source
+      set -gx _ZL_CD cd
     '';
     interactiveShellInit = ''
       # Colorscheme: "Tomorrow Night Bright" (from `fish_config`)
