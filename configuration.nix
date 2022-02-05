@@ -34,6 +34,8 @@
   ];
 
   nix = {
+    # Flakes are only available in nix unstable
+    package = pkgs.nixUnstable;
     # Automatic optimisation of duplicate files:
     autoOptimiseStore = true;
     # Automatic garbage collection:
@@ -48,6 +50,7 @@
     extraOptions = ''
       min-free = ${toString (100 * 1024 * 1024)}
       max-free = ${toString (1024 * 1024 * 1024)}
+      experimental-features = nix-command flakes
     '';
   };
 
