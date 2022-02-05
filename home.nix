@@ -79,6 +79,7 @@ home-manager.users.dom = { pkgs, ... }: {
       t = "z"; # z is not pinky-friendly; t is for "to"
       start = "sudo systemctl start";
       stop = "sudo systemctl stop";
+      status = "sudo systemctl status";
       reboot = "sudo systemctl reboot";
       reload = "sudo systemctl reload";
       restart = "sudo systemctl restart";
