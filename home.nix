@@ -67,6 +67,8 @@ home-manager.users.dom = { pkgs, ... }: {
       gd = "git diff";
       gl = "git log";
       gs = "git status";
+      push = "git push";
+      pull = "git pull";
       m = "make -s";
       nrs = "sudo nixos-rebuild -I nixos-config=/home/dom/code/hxy/nixos-config/configuration.nix switch";
       ne = "vim ~/code/hxy/nixos-config/configuration.nix";
