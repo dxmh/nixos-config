@@ -71,6 +71,7 @@ home-manager.users.dom = { pkgs, ... }: {
       nrs = "sudo nixos-rebuild -I nixos-config=/home/dom/code/hxy/nixos-config/configuration.nix switch";
       ne = "vim ~/code/hxy/nixos-config/configuration.nix";
       ns = "nix-shell";
+      psg = "ps auxwww | grep -i";
       v = "vagrant";
       xp = "xrandr --output Virtual-1 --preferred";
       t = "z"; # z is not pinky-friendly; t is for "to"
