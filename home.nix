@@ -14,6 +14,8 @@ home-manager.users.dom = { pkgs, ... }: {
     gnumake
     gh
     z-lua
+    shellcheck
+    unzip
     # graphical
     dwm
     dmenu
