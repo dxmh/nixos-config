@@ -17,10 +17,10 @@
             url = "https://dwm.suckless.org/patches/bar_height/dwm-bar-height-spacing-6.3.diff";
             sha256 = "1z6f3l9myv3xj11jyx0s6xzb69b8jmsvji2jyvhnvywxhdb7l89w";
           })
-          (prev.fetchpatch {
-            url = "https://dwm.suckless.org/patches/smartborders/dwm-smartborders-6.2.diff";
-            sha256 = "0chx3i2ddnx1i2c2hfp2m693khjfmfx2fmvwp6qa79jqymmlzdxs";
-          })
+          # (prev.fetchpatch {
+          #   url = "https://dwm.suckless.org/patches/smartborders/dwm-smartborders-6.2.diff";
+          #   sha256 = "0chx3i2ddnx1i2c2hfp2m693khjfmfx2fmvwp6qa79jqymmlzdxs";
+          # })
         ];
         configFile = prev.writeText "config.h" (builtins.readFile ./config/dwm-config.h);
         postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
