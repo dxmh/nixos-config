@@ -14,8 +14,8 @@
       dwm = prev.dwm.overrideAttrs (oldAttrs: rec {
         patches = [
           (prev.fetchpatch {
-            url = "https://dwm.suckless.org/patches/bar_height/dwm-bar-height-6.2.diff";
-            sha256 = "0x70ca7a5cwp5ny888g4vhga4gl3qba3w7nawh954cjlx234q1rz";
+            url = "https://dwm.suckless.org/patches/bar_height/dwm-bar-height-spacing-6.3.diff";
+            sha256 = "1z6f3l9myv3xj11jyx0s6xzb69b8jmsvji2jyvhnvywxhdb7l89w";
           })
           (prev.fetchpatch {
             url = "https://dwm.suckless.org/patches/smartborders/dwm-smartborders-6.2.diff";
