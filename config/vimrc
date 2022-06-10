@@ -10,6 +10,7 @@ set ignorecase smartcase " ignore case unless search patterns contains capitals
 set showcmd " show commands as they're being typed
 set hidden " allow switching buffers without saving
 set hlsearch " search highlighting on
+set undofile " persistent undo
 
 " Easier access to frequent commands
 nnoremap <leader><leader> :Buffers<Return>
