@@ -16,12 +16,18 @@ home-manager.users.dom = { pkgs, ... }: {
     z-lua
     shellcheck
     unzip
+    qrencode
+    awscli2
+    terraform
+    jq
+    ripgrep
     # graphical
     dwm
     dmenu
     slstatus
     surf
     electrum
+    xclip
   ];
 
   programs.kitty = {
