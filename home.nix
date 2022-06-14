@@ -188,14 +188,15 @@ home-manager.users.dom = { pkgs, ... }: {
       kitty &
     '';
 
-    # Scalable cursor theme to fix tiny pointer on HiDPI display.
-    pointerCursor = {
-      name = "Vanilla-DMZ";
-      package = pkgs.vanilla-dmz;
-      size = 128;
-    };
-
   };
+
+  # Scalable cursor theme to fix tiny pointer on HiDPI display.
+  home.pointerCursor = {
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 128;
+  };
+
 
 };
 
