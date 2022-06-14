@@ -17,11 +17,13 @@ nnoremap <leader><leader> :Buffers<Return>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>g :Git<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
 nnoremap <leader>f :Files<Return>
 nnoremap <leader>r :Rename <c-r>=expand('%')<CR>
+nnoremap <leader>/ :Rg<Space>
 
 " Line wrapping
 set wrap " enable soft-wrapping
@@ -41,7 +43,7 @@ set noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=2 tabstop=2
 " Vim offers suggestions! See `:help z=` and `:help i^xs`...
 set nospell " off by default
 set spelllang=en_gb
-nnoremap <leader>rs 1z=
+nnoremap <leader>c 1z=
 
 " Colours
 colorscheme snazzy
