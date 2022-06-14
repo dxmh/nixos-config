@@ -187,6 +187,7 @@ home-manager.users.dom = { pkgs, ... }: {
       vim-snazzy
       vim-speeddating
       vim-surround
+      vim-terraform
       vim-unimpaired
       vim-vinegar
     ];
