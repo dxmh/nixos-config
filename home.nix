@@ -66,6 +66,7 @@ home-manager.users.dom = { pkgs, ... }: {
   programs.fish = {
     enable = true;
     shellAbbrs = {
+      a = "aws";
       d = "docker";
       dc = "docker-compose";
       e = "vim";
@@ -108,6 +109,8 @@ home-manager.users.dom = { pkgs, ... }: {
       # Enable z (https://github.com/skywind3000/z.lua)
       ${pkgs.z-lua}/bin/z --init fish | source
       set -gx _ZL_CD cd
+      # Enable AWS CLI autocompletion: github.com/aws/aws-cli/issues/1079
+      complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
     '';
     interactiveShellInit = ''
       # Colorscheme: "Tomorrow Night Bright" (from `fish_config`)
