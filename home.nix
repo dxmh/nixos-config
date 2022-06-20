@@ -20,6 +20,7 @@ home-manager.users.dom = { pkgs, ... }: {
     awscli2
     terraform
     jq
+    fx
     ripgrep
     # graphical
     dwm
