@@ -221,6 +221,7 @@ home-manager.users.dom = { pkgs, ... }: {
     size = 128;
   };
 
+  services.clipmenu.enable = true;
 
 };
 
