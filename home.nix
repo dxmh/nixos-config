@@ -18,6 +18,7 @@ home-manager.users.dom = { pkgs, ... }: {
     unzip
     qrencode
     awscli2
+    awsebcli
     terraform
     jq
     jless
