@@ -23,6 +23,7 @@ home-manager.users.dom = { pkgs, ... }: {
     jq
     jless
     ripgrep
+    zip
     # graphical
     dwm
     dmenu
