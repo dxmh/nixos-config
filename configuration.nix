@@ -92,6 +92,7 @@
   environment.systemPackages = with pkgs; [
     bat
     bind # for dig
+    comma # run packages without installing them
     curl
     htop
     killall
